@@ -3,7 +3,7 @@ Title: Scientific literacy test
 Version: 0.0.0.9000
 Authors@R: 
     person("Radim", "Hladík", , "hladik@flu.cas.cz", role = c("cre", "aut"))
-Description: Shiny application for the test of scientific literacy
+Description: Shiny application for the test of scientific literacy.
 License: MIT + file LICENSE
 Imports: 
     config,

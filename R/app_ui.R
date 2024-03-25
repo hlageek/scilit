@@ -17,15 +17,18 @@ app_ui <- function(request) {
   left: 50%;
   transform: translate(-50%, -50%);
       }
+      .shiny-options-group .radio:nth-child(5) {
+      display: none;
+    }
     "))),
       tabsetPanel(
     id = "wizard",
     type = "hidden",
     tabPanel("intro_panel", 
     div(class = "center-div",
-      mod_intro_ui("intro")
-    ),
+      mod_intro_ui("intro"),
       actionButton("enter_test", "Zahájit test")
+      )
     ),
     tabPanel("question_panel", 
         div(class = "center-div",

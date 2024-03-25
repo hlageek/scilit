@@ -41,10 +41,10 @@ questions <- list(
 </table>",
     image = "q2.png",
     options = list(
-      a = "A",
-      b = "B",
-      c = "C",
-      d = "D"
+      a = "",
+      b = "",
+      c = "",
+      d = ""
     )
   ),
     answer = "c"
