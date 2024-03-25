@@ -32,17 +32,17 @@ mod_question_server <- function(id){
     if (quid$id < 28) {
       actionButton(ns("next"), "Další")
     },
-    p(questions[[quid$id]]$text),
-    if (!is.null(questions[[quid$id]]$background)) {
-      p(tags$i(HTML(questions[[quid$id]]$background)))
+    p(scilit::questions[[quid$id]]$text),
+    if (!is.null(scilit::questions[[quid$id]]$background)) {
+      p(tags$i(HTML(scilit::questions[[quid$id]]$background)))
     },
-    if (!is.null(questions[[quid$id]]$image)) {
-      img(src = paste0("www/", questions[[quid$id]]$image),
+    if (!is.null(scilit::questions[[quid$id]]$image)) {
+      img(src = paste0("www/", scilit::questions[[quid$id]]$image),
       style = "height: 30vh; width: auto;")
     },
     radioButtons(ns(quid$id), "Vybrat odpověď",
-      choiceNames = unname(questions[[quid$id]]$options),
-      choiceValues = names(questions[[quid$id]]$options),
+      choiceNames = unname(scilit::questions[[quid$id]]$options),
+      choiceValues = names(scilit::questions[[quid$id]]$options),
       width = "80%"
     )
   )
