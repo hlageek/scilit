@@ -10,7 +10,33 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("scilit")
+    tags$head(tags$style(HTML("
+      .center-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+      }
+    "))),
+      tabsetPanel(
+    id = "wizard",
+    type = "hidden",
+    tabPanel("intro_panel", 
+    div(class = "center-div",
+      mod_intro_ui("intro")
+    ),
+      actionButton("enter_test", "Zahájit test")
+    ),
+    tabPanel("question_panel", 
+        div(class = "center-div",
+      mod_question_ui("question")
+        )
+    ),
+    tabPanel("final_panel", 
+      "final panel"
+    )
+  )
+
     )
   )
 }
