@@ -27,8 +27,14 @@ mod_question_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
 
+    # initialize reactive values
     quid <- reactiveValues(id = 1)
+    loc <- reactiveValues(previous_answer = "")
 
+    # check for previous answers
+    # loc$previous_answer <- glob$answers_given[[quid$id]]
+
+    # generate question from data
     output$question <- renderUI({
   tagList(
     h3(paste("Otázka č.", quid$id)),
@@ -40,26 +46,31 @@ mod_question_server <- function(id){
     },
     tags$br(),tags$br(),
     p(scilit::questions[[quid$id]]$text),
+    # conditionally show additional background for question
     if (!is.null(scilit::questions[[quid$id]]$background)) {
       p(tags$i(HTML(scilit::questions[[quid$id]]$background)))
     },
+    # conditionally show image for question
     if (!is.null(scilit::questions[[quid$id]]$image)) {
       img(src = paste0("www/", scilit::questions[[quid$id]]$image),
-      style = "height: 30vh; width: auto;")
+      style = "height: 33vh; width: auto;")
     },
+    # show 4 plus 1 CSS hidden ("" - empty) option
     radioButtons(ns(paste0("choices", quid$id)), "",
       choiceNames = paste0(LETTERS[seq( from = 1, to = 5 )], ". ", c(unname(scilit::questions[[quid$id]]$options), "None")),
       choiceValues = c(names(scilit::questions[[quid$id]]$options), ""),
-      selected = "",
-      width = "80%"
+      selected = loc$previous_answer,
+      width = "90%"
     )
   )
 })
 
+    # display selected answer
     output$selected <- renderText({
-      input[[paste0("choices", quid$id)]]
+      toupper(input[[paste0("choices", quid$id)]])
     })
 
+    # handle navigation between questions
     observeEvent(input[["previous"]], {
       quid$id <- quid$id - 1 
     })
@@ -69,9 +80,3 @@ mod_question_server <- function(id){
  
   })
 }
-    
-## To be copied in the UI
-# 
-    
-## To be copied in the server
-# 
