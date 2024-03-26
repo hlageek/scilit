@@ -45,9 +45,22 @@ questions <- list(
       b = "",
       c = "",
       d = ""
-    )
+    ),
+     answer = "c"
   ),
-    answer = "c"
+ list(
+    id = 3,
+    text = "Ve Spojených státech byla s využitím náhodného souboru 1000 osob provedena studie, která měla určit průměrný věk dožití. V tomto souboru byla průměrná délka života 80,1 let u žen a 74,9 let u mužů. Jakým způsobem můžete zvýšit svou jistotu, že ženy v celkové populaci Spojených států žijí skutečně déle než muži?",
+    background = NULL,
+    image = NULL,
+    options = list(
+      a = "Odečtením průměrného věku dožití mužů od průměrného věku dožití žen. Pokud je hodnota kladná, ženy žijí déle.",
+      b = "Provedením statistické analýzy s cílem zjistit, zda ženy žijí významně déle než muži.",
+      c = "Vynesením průměrné (střední) hodnoty věku dožití pro ženy a muže do grafu a vizuální analýzou dat",
+      d = "Neexistuje způsob, jak zvýšit svou jistotu, že mezi oběma pohlavími existuje rozdíl v průměrném věku dožití."
+    ),
+     answer = "b"
+  )
 )
 
 usethis::use_data(questions, overwrite = TRUE)

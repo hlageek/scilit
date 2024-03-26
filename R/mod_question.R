@@ -35,10 +35,10 @@ mod_question_server <- function(id){
     if (quid$id > 1) {
       actionButton(ns("previous"), "", icon = icon("arrow-left"))
     },
-    if (quid$id < 28) {
+    if (quid$id < length(scilit::questions)) {
       actionButton(ns("next"), "", icon = icon("arrow-right"))
     },
-    tags$br(),
+    tags$br(),tags$br(),
     p(scilit::questions[[quid$id]]$text),
     if (!is.null(scilit::questions[[quid$id]]$background)) {
       p(tags$i(HTML(scilit::questions[[quid$id]]$background)))

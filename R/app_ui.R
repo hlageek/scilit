@@ -13,9 +13,8 @@ app_ui <- function(request) {
     tags$head(tags$style(HTML("
       .center-div {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
       }
       .shiny-options-group .radio:nth-child(5) {
       display: none;
